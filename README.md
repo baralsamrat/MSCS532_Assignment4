@@ -1,5 +1,7 @@
 # Assignment 4: Heap Data Structures: Implementation, Analysis, and Applications
 
+[Report of Assignment](/Report.md)
+
 ## Overview:
 This assignment aims to solidify your understanding of heap data structures, their implementation using
 arrays, and their applications in sorting (Heapsort) and priority queue operations. You will analyze the
