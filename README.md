@@ -1,11 +1,12 @@
-# Assignment 4: Heap Data Structures: Implementation, Analysis, and
-Applications
+# Assignment 4: Heap Data Structures: Implementation, Analysis, and Applications
+
 ## Overview:
 This assignment aims to solidify your understanding of heap data structures, their implementation using
 arrays, and their applications in sorting (Heapsort) and priority queue operations. You will analyze the
 efficiency of these algorithms and explore their use in real-world scenarios.
 
 ##  Heapsort Implementation and Analysis
+
 ### 1. Implementation
 - Implement the Heapsort algorithm using Python. Ensure your implementation is clear, efficient, and follows
 the correct steps for building a max-heap, extracting the maximum element, and maintaining the heap
