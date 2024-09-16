@@ -31,12 +31,14 @@ def merge(left, right):
     sorted_arr.extend(left if left else right)
     return sorted_arr
 
+
 def time_sorting_algorithm(algorithm, arr):
     if len(arr) <= 1:
-        return 0  # No time needed for sorting a single element or empty array
+        return 0  # Skip timing for trivial cases
     start_time = time.time()
     algorithm(arr)
     end_time = time.time()
+    print(f"Sorted Array: {arr}")  # Debug print
     return end_time - start_time
 
 # Compare Heapsort, Quicksort, and Merge Sort on different input distributions
