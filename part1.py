@@ -12,7 +12,6 @@ def iterative_heapify(arr, n, i):
         if largest != i:
             arr[i], arr[largest] = arr[largest], arr[i] 
             print(f"Heapified {arr}")  # Debug print
-            iterative_heapify(arr, n, largest)
             i = largest  # Continue heapifying down the tree
         else:
             break
