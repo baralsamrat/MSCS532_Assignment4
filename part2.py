@@ -6,8 +6,11 @@ class Task:
         self.deadline = deadline
     
     def __lt__(self, other):
-        return self.priority < other.priority  # For min-heap (lower value = higher priority)
-    
+        # If priorities are equal, compare by arrival_time
+        if self.priority == other.priority:
+            return self.arrival_time < other.arrival_time
+        return self.priority < other.priority  # Min-heap: lower priority value is higher priority  # For min-heap (lower value = higher priority)
+
 class PriorityQueue:
     def __init__(self):
         self.heap = []
@@ -53,8 +56,18 @@ class PriorityQueue:
             self._swap(idx, smallest)
             self._sift_down(smallest)
 
+# Example usage 1
+pq = PriorityQueue()
+tasks = [Task(1, 2, 0, 5), Task(2, 2, 1, 6), Task(3, 1, 2, 4)]
+for task in tasks:
+    pq.insert(task)
     
-# Example usage
+while not pq.is_empty():
+    task = pq.extract_min()
+    print(f"Executing Task ID: {task.task_id}, Priority: {task.priority}")
+
+
+# Example usage 2
 pq = PriorityQueue()
 tasks = [Task(1, 3, 0, 5), Task(2, 1, 1, 4), Task(3, 2, 2, 6)]
 for task in tasks:
