@@ -32,6 +32,8 @@ def merge(left, right):
     return sorted_arr
 
 def time_sorting_algorithm(algorithm, arr):
+    if len(arr) <= 1:
+        return 0  # No time needed for sorting a single element or empty array
     start_time = time.time()
     algorithm(arr)
     end_time = time.time()
