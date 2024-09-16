@@ -17,19 +17,21 @@ class PriorityQueue:
 
     def _swap(self, i, j):
         self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
-
+    
     def insert(self, task):
         self.heap.append(task)
         self._sift_up(len(self.heap) - 1)
+        print(f"Inserted Task ID: {task.task_id}, Heap: {[t.task_id for t in self.heap]}")  # Debug print
 
     def extract_min(self):
         if self.is_empty():
             return None
         self._swap(0, len(self.heap) - 1)
         min_task = self.heap.pop()
+        print(f"Extracted Task ID: {min_task.task_id}, Heap: {[t.task_id for t in self.heap]}")  # Debug print
         self._sift_down(0)
         return min_task
-
+        
     def decrease_priority(self, task_index, new_priority):
         self.heap[task_index].priority = new_priority
         self._sift_up(task_index)
