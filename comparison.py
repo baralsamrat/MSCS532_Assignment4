@@ -2,13 +2,34 @@ import random
 import time
 
 def quicksort(arr):
-    return
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    return quicksort(left) + middle + quicksort(right)
 
 def merge_sort(arr):
-    return
+    if len(arr) <= 1:
+        return arr
+
+    mid = len(arr) // 2
+    left_half = merge_sort(arr[:mid])
+    right_half = merge_sort(arr[mid:])
+
+    return merge(left_half, right_half)
 
 def merge(left, right):
-    return
+    sorted_arr = []
+    while left and right:
+        if left[0] <= right[0]:
+            sorted_arr.append(left.pop(0))
+        else:
+            sorted_arr.append(right.pop(0))
+
+    sorted_arr.extend(left if left else right)
+    return sorted_arr
 
 def time_sorting_algorithm(algorithm, arr):
     start_time = time.time()
@@ -36,12 +57,12 @@ for size in arr_sizes:
         heap_time = time_sorting_algorithm(heapsort, heap_arr)
         print(f"Heapsort Time: {heap_time:.6f} seconds")
         
-        # Quicksort  Algo
+        # Quicksort Algo
         quick_arr = arr.copy()
         quick_time = time_sorting_algorithm(quicksort, quick_arr)
         print(f"Quicksort Time: {quick_time:.6f} seconds")
         
-        # Merge Sort  Algo
+        # Merge Sort Algo
         merge_arr = arr.copy()
         merge_time = time_sorting_algorithm(merge_sort, merge_arr)
         print(f"Merge Sort Time: {merge_time:.6f} seconds")
